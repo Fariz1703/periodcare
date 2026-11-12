@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:periodcare/core/theme/app_text_style.dart';
@@ -6,11 +8,13 @@ import 'package:periodcare/feature/calendar/calendarmodel.dart';
 import 'package:periodcare/helper/datemonth.dart';
 
 class CycleWidget extends StatelessWidget {
-  const CycleWidget({super.key, required this.dateRange, this.nextStart});
+  const CycleWidget({super.key, required this.dateRange, this.nextStart, required this.onTap});
 
   final DateRange dateRange;
 
   final DateTime? nextStart;
+
+  final VoidCallback onTap;
 
   int calculateDays(DateTime start, DateTime end) {
     return end.difference(start).inDays + 1;
@@ -108,20 +112,23 @@ class CycleWidget extends StatelessWidget {
             ],
           ),
           Spacer(),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Icon(Icons.circle, size: 40, color: Color(0xffF2EDEA)),
-              SvgPicture.asset(
-                "assets/images/edit.svg",
-                height: 12,
-                fit: BoxFit.contain,
-                colorFilter: ColorFilter.mode(
-                  AppColors.textSecondary,
-                  BlendMode.srcIn,
+          GestureDetector(
+            onTap: onTap,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Icon(Icons.circle, size: 40, color: Color(0xffF2EDEA)),
+                SvgPicture.asset(
+                  "assets/images/edit.svg",
+                  height: 12,
+                  fit: BoxFit.contain,
+                  colorFilter: ColorFilter.mode(
+                    AppColors.textSecondary,
+                    BlendMode.srcIn,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

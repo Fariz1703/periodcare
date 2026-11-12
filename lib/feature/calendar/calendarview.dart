@@ -8,6 +8,7 @@ import 'package:periodcare/core/theme/app_colors.dart';
 import 'package:periodcare/feature/calendar/component/calendar.dart';
 import 'package:periodcare/feature/calendar/calendarviewmodel.dart';
 import 'package:periodcare/feature/calendar/component/cycle.dart';
+import 'package:periodcare/feature/calendar/component/bottom_sheet_show_info.dart';
 
 class CalendarView extends StatefulWidget {
   const CalendarView({super.key});
@@ -28,11 +29,8 @@ class _CalendarViewState extends State<CalendarView> {
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 children: [
-            
                   Calendar(highlightedRanges: vm.highlightedRanges),
-            
                   const SizedBox(height: 24),
-            
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
@@ -62,6 +60,7 @@ class _CalendarViewState extends State<CalendarView> {
                         return Column(
                           children: [
                             CycleWidget(
+                              onTap: () => showCycleBottomSheet(context: context),
                               dateRange: vm.highlightedRanges[index],
                               nextStart: index + 1 < vm.highlightedRanges.length
                                   ? vm.highlightedRanges[index + 1].dateStart
