@@ -40,7 +40,8 @@ dependencies:
   table_calendar: ^3.3.0
   google_fonts: ^6.2.1
   intl: ^0.20.3
-  flutter_inset_box_shadow: ^1.0.8
+  flutter_inset_box_shadow:
+    path: packages/flutter_inset_box_shadow/flutter_inset_box_shadow-1.0.8
 
 dev_dependencies:
   flutter_test:
