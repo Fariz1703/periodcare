@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:periodcare/core/theme/app_colors.dart';
 import 'package:periodcare/core/theme/app_text_style.dart';
-import 'package:periodcare/feature/statistic/component/CycleChartPainter.dart';
+import 'package:periodcare/feature/statistic/component/cyclechartpainter.dart';
 import 'package:periodcare/helper/datemonth.dart';
 
 class GraphicWidget extends StatelessWidget {
