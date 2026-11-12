@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:periodcare/core/theme/app_colors.dart';
 import 'package:periodcare/core/theme/app_text_style.dart';
